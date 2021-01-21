@@ -16,9 +16,13 @@ const purgecss = [
 ];
 
 module.exports = {
-  plugins: [
-    'tailwindcss',
-    process.env.NODE_ENV === 'prod' ? purgecss : undefined,
-    'postcss-preset-env',
+    plugins: [
+    "tailwindcss",
+    ["postcss-preset-env",{
+      stage: 1,
+      features: {
+        'focus-within-pseudo-class': false
+      }
+    }],
   ],
 };
